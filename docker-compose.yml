@@ -6,4 +6,4 @@ services:
          restart: always
          ports: 
           - "7722:80"
-         mem-limit: 300m 
+
