@@ -1,0 +1,9 @@
+version: '3.8'
+services: 
+ harishapp1:
+         image: httpd:harishimage
+         container_name: harish1
+         restart: always
+         ports: 
+          - "7722:80"
+         mem-limit: 300m 
