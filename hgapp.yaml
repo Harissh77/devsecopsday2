@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hgdeploy
+  name: hgdeploy  #unique deployment name
+spec:
+  replicas: 1  #only one pod
+  selector:
+    matchLabels:
+      app: hgdeploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:  #this is tag on pods
+        app: hgapps1
+    spec:
+      containers:
+      - image: harissh77/harishdoc:hg001
+        name: harishdoc
+        imagePullPolicy: Always #try to pull image everytime build is success
+        resources: {}
+status: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hgapps1
+  name: hgapps1
+spec:
+  ports:
+  - name: 7272-80
+    port: 7272
+    protocol: TCP
+    targetPort: 80
+  selector:   #this will find pod with lables
+    app: hgapps1   #key and values must match pod labels
+  type: NodePort
+status:
+  loadBalancer: {}
