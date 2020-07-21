@@ -15,7 +15,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:  #this is tag on pods
-        app: hgapp1
+        app: hgapps1
     spec:
       containers:
       - image: harissh77/harishdoc:hg001
@@ -30,8 +30,8 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: hgapps1
-  name: hgapps1
+    app: hgapp1
+  name: hgapp1
 spec:
   ports:
   - name: 7272-80
@@ -39,7 +39,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:   #this will find pod with lables
-    app: hgapp1   #key and values must match pod labels
+    app: hgapps1   #key and values must match pod labels
   type: NodePort
 status:
   loadBalancer: {}
