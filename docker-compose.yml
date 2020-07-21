@@ -2,6 +2,7 @@ version: '3.8'
 services: 
  harishapp1:
          image: httpd:harishimage
+         build: .
          container_name: harish1
          restart: always
          ports: 
