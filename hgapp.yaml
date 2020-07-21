@@ -3,13 +3,13 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: hgdeploy
-  name: hgdeploy  #unique deployment name
+    app: hgapps1
+  name: hgapps1  #unique deployment name
 spec:
   replicas: 1  #only one pod
   selector:
     matchLabels:
-      app: hgdeploy
+      app: hgapps1
   strategy: {}
   template:
     metadata:
